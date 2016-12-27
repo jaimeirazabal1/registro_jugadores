@@ -1,0 +1,184 @@
+<?php View::content() ?>
+<?php echo Form::open("","post","id='form-jugador'") ?>
+	<div class="form-group">
+		<label>Datos</label>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-bookmark"></span></span>
+					<?php echo Form::text("jugador.seccion","placeholder='Sección' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-th-large"></span></span>
+					<?php echo Form::text("jugador.pos","placeholder='POS' class='form-control'") ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Datos Personales</label>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-group "></span></span>
+					<?php echo Form::text("jugador.apellido_paterno","placeholder='Apellido Paterno' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-group "></span></span>
+					<?php echo Form::text("jugador.apellido_materno","placeholder='Apellido Materno' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-user"></span></span>
+					<?php echo Form::text("jugador.nombres","placeholder='Nombres(s)' class='form-control'") ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Domicilio</label>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-road"></span></span>
+					<?php echo Form::text("jugador.calle","placeholder='Calle' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1">#</span>
+					<?php echo Form::text("jugador.numero_int","placeholder='No Interno' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1">##</span>
+					<?php echo Form::text("jugador.numero_ext","placeholder='No Externo' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-home  "></span></span>
+					<?php echo Form::text("jugador.colonia","placeholder='Colonia' class='form-control'") ?>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+					<?php echo Form::text("jugador.cp","placeholder='C.P' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-globe"></span></span>
+					<?php echo Form::text("jugador.localidad","placeholder='Localidad' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-globe"></span></span>
+					<?php echo Form::text("jugador.municipio","placeholder='Municipio' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-globe"></span></span>
+					<?php echo Form::text("jugador.estado","placeholder='Estado' class='form-control'") ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Datos de Contacto</label>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-phone fa-fw"></span></span>
+					<?php echo Form::text("jugador.tlf_particular","placeholder='Teléfono Particular' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-mobile-phone fa-fw"></span></span>
+					<?php echo Form::text("jugador.tlf_celular","placeholder='Teléfono Celular' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-envelope-square fa-fw"></span></span>
+					<?php echo Form::text("jugador.correo","placeholder='Correo Electrónico' class='form-control'") ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-facebook"></span></span>
+					<?php echo Form::text("jugador.facebook","placeholder='Facebook' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-twitter"></span></span>
+					<?php echo Form::text("jugador.twitter","placeholder='Twitter' class='form-control'") ?>
+				</div>
+			</div>
+			<div class="col-md-4 ">
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-youtube"></span></span>
+					<?php echo Form::text("jugador.youtube","placeholder='Youtube' class='form-control'") ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pull-right">
+		<input type="submit" value="Guardar(F5)" id="btn_guardar" class="btn btn-info">
+		<input type="reset" value="Limpiar(F10)" id="btn_limpiar" onclick="$('#form-jugador')[0].reset()" class="btn btn-default">
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").on("keyup",function(event){
+				console.log(event.keyCode)
+				if (event.keyCode == 121) {
+					$('#form-jugador')[0].reset();
+				}
+			})
+			var ctrlKeyDown = false;
+
+			$(document).ready(function(){    
+			    $(document).on("keydown", keydown);
+			    $(document).on("keyup", keyup);
+			});
+
+			function keydown(e) { 
+
+			    if ((e.which || e.keyCode) == 116 || ((e.which || e.keyCode) == 82 && ctrlKeyDown)) {
+			        // Pressing F5 or Ctrl+R
+			        e.preventDefault();
+			        $("#btn_guardar").click();
+			    } else if ((e.which || e.keyCode) == 17) {
+			        // Pressing  only Ctrl
+			        ctrlKeyDown = true;
+			    }
+			};
+
+			function keyup(e){
+			    // Key up Ctrl
+			    if ((e.which || e.keyCode) == 17) 
+			        ctrlKeyDown = false;
+			};
+		})
+	</script>
+<?php echo Form::close() ?>

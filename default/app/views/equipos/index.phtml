@@ -1,0 +1,77 @@
+	<?php View::content() ?>
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Nuevo Equipo
+</button>
+
+<br>
+<br>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nuevo Equipo</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo Form::open("equipos/create","post") ?>
+        	<div class="form-group">
+        		<input type="text" name="equipo[nombre]" class="form-control">
+        	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <input type="submit" class="btn btn-primary" value="Guardar">
+        <?php echo Form::open() ?>
+      </div>
+    </div>
+  </div>
+</div>
+		<table class="table" style="width:100%">
+			<thead>
+				<th>#</th>
+				<th>Equipo</th>
+			</thead>
+			<?php foreach ($equipos as $key => $value): ?>
+				<tr>
+					<td><?php echo $value->id ?></td>
+					<td><?php echo $value->nombre ?></td>
+				</tr>
+			<?php endforeach ?>
+		</table>
+<script src="<?php echo PUBLIC_PATH ?>/vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo PUBLIC_PATH ?>/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo PUBLIC_PATH ?>/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+    $(document).ready(function() {
+        $('.table').DataTable({
+        	language:{
+    "sProcessing":     "Procesando...",
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Buscar:",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+        "sFirst":    "Primero",
+        "sLast":     "Último",
+        "sNext":     "Siguiente",
+        "sPrevious": "Anterior"
+    },
+    "oAria": {
+        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+}
+        });
+    });
+</script>
+   
