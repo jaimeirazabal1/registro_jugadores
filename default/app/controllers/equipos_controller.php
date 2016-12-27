@@ -17,7 +17,6 @@ class EquiposController extends AppController{
 		}
 	}
 	public function jugador($id_equipo){
-		$this->titulo_pagina = "Jugador";
 		if (Input::post("jugador")) {
 			$jugador = Load::model("jugador",Input::post("jugador"));
 			if ($jugador->save()) {
@@ -27,6 +26,8 @@ class EquiposController extends AppController{
 			}
 		}
 		$this->equipo_id = $id_equipo;
-		$this->jugadores = Load::model("jugador")->find();
+		$this->equipo = Load::model("equipo")->find($id_equipo);
+		$this->jugadores = Load::model("jugador")->find("conditions: equipo_id = '$id_equipo'");
+		$this->titulo_pagina = "Jugador | Equipo: ".$this->equipo->nombre;
 	}
 }
