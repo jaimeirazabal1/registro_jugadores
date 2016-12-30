@@ -1,0 +1,32 @@
+<?php View::content() ?>
+<table class="table">
+	<thead>
+		<td></td>
+		<th>Nombres</th>
+		<th>Apellido Paterno</th>
+		<th>Apellido Materno</th>
+		<th>Sección</th>
+		<th>Posición</th>
+		<th></th>
+	</thead>
+	<?php $c = 0 ?>
+	<?php $alts = array('a','s','d','f','g') ?>
+	<?php foreach ($results as $key => $value): ?>
+		<tr>
+			<td>
+				<?php if ($c < 5): ?>
+					<?php echo ($c+1).') ALT + '.$alts[$c] ?>
+				<?php else: ?>
+					<?php echo ($c+1).")" ?>
+				<?php endif ?>
+				<?php $c++; ?>
+
+			</td>
+			<td><?php echo $value->nombre ?></td>
+			<td><?php echo $value->apellidopaterno ?></td>
+			<td><?php echo $value->apellidomaterno ?></td>
+			<td><?php echo $value->seccion ?></td>
+			<td><?php echo $value->posicion ?></td>
+		</tr>
+	<?php endforeach ?>
+</table>

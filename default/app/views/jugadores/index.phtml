@@ -1,4 +1,32 @@
 <?php View::content() ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".seccion,.pos,.ap,.am,.nombres").keyup(function(){
+			var seccion = $('.seccion').val() ? $('.seccion').val() : '';
+			var pos = $('.pos').val() ? $('.pos').val() : '';
+			var ap = $('.ap').val() ? $('.ap').val() : '';
+			var am = $('.am').val() ? $('.am').val() : '';
+			var nombres = $('.nombres').val() ? $('.nombres').val() : '';
+
+			$.ajax({
+				url:"<?php echo PUBLIC_PATH ?>buscador",
+				data:{
+					seccion : seccion,
+					pos 	: pos,
+					ap 		: ap,
+					am 		: am,
+					nombres : nombres
+				},
+				type:'post',
+				success:function(r){
+					console.log(r);
+					$(".results").html(r);
+				}
+			})
+		
+		});
+	});
+</script>
 <?php echo Form::open("","post","id='form-jugador'") ?>
 	<div class="form-group">
 		<label>Datos</label>
@@ -6,13 +34,13 @@
 			<div class="col-md-6">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-bookmark"></span></span>
-					<?php echo Form::text("jugador.seccion","placeholder='Sección' class='form-control'") ?>
+					<?php echo Form::text("jugador.seccion","placeholder='Sección' class='form-control seccion'") ?>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-th-large"></span></span>
-					<?php echo Form::text("jugador.pos","placeholder='POS' class='form-control'") ?>
+					<?php echo Form::text("jugador.pos","placeholder='POS' class='form-control pos'") ?>
 				</div>
 			</div>
 		</div>
@@ -23,19 +51,19 @@
 			<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-group "></span></span>
-					<?php echo Form::text("jugador.apellido_paterno","placeholder='Apellido Paterno' class='form-control'") ?>
+					<?php echo Form::text("jugador.apellido_paterno","placeholder='Apellido Paterno' class='form-control am'") ?>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-group "></span></span>
-					<?php echo Form::text("jugador.apellido_materno","placeholder='Apellido Materno' class='form-control'") ?>
+					<?php echo Form::text("jugador.apellido_materno","placeholder='Apellido Materno' class='form-control ap'") ?>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-user"></span></span>
-					<?php echo Form::text("jugador.nombres","placeholder='Nombres(s)' class='form-control'") ?>
+					<?php echo Form::text("jugador.nombres","placeholder='Nombres(s)' class='form-control' nombres") ?>
 				</div>
 			</div>
 		</div>
@@ -189,7 +217,7 @@
 <br>
 <div class="panel panel-default">
 	  <div class="panel-body">
-		<table class="table">
+		<table class="table results">
 			<thead>
 				<th>Nombres</th>
 				<th>Apellido Paterno</th>
@@ -198,18 +226,7 @@
 				<th>Posición</th>
 				<th></th>
 			</thead>
-			<?php foreach ($jugadores as $key => $value): ?>
-				<tr>
-					<td><?php echo $value->nombres ?></td>
-					<td><?php echo $value->apellido_paterno ?></td>
-					<td><?php echo $value->apellido_materno ?></td>
-					<td><?php echo $value->seccion ?></td>
-					<td><?php echo $value->pos ?></td>
-					<td>
-						<?php echo Html::link("jugadores/ver/$value->id","Ver","class='btn btn-default btn-xs'") ?>
-					</td>
-				</tr>
-			<?php endforeach ?>
+			
 		</table>
 	  </div>
 </div>
