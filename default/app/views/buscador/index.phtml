@@ -12,7 +12,11 @@
 	<?php $c = 0 ?>
 	<?php $alts = array('a','s','d','f','g') ?>
 	<?php foreach ($results as $key => $value): ?>
-		<tr>
+		<?php if ($c < 5): ?>
+			<tr id="<?php echo $value->id ?>" class="fila">
+		<?php else: ?>
+			<tr id="<?php echo $value->id ?>">
+		<?php endif ?>
 			<td>
 				<?php if ($c < 5): ?>
 					<?php echo ($c+1).') ALT + '.$alts[$c] ?>

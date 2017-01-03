@@ -19,7 +19,7 @@
 				},
 				type:'post',
 				success:function(r){
-					console.log(r);
+					//console.log(r);
 					$(".results").html(r);
 				}
 			})
@@ -63,7 +63,7 @@
 			<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-user"></span></span>
-					<?php echo Form::text("jugador.nombres","placeholder='Nombres(s)' class='form-control' nombres") ?>
+					<?php echo Form::text("jugador.nombres","placeholder='Nombres(s)' class='form-control nombres' ") ?>
 				</div>
 			</div>
 		</div>
@@ -179,6 +179,63 @@
    
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$("html").on("keydown",function(e){
+				console.log(e.keyCode)
+				filas = $(".fila");
+				//console.log(filas)
+				if (e.keyCode == 65 && e.altKey) {
+					//console.log($.trim(filas.eq(0).find("td").eq(1).text()));
+					$("#jugador_seccion").val($.trim(filas.eq(0).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim(filas.eq(0).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim(filas.eq(0).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim(filas.eq(0).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim(filas.eq(0).find("td").eq(2).text()));
+				}
+				if (e.keyCode == 83 && e.altKey) {
+					$("#jugador_seccion").val($.trim(filas.eq(1).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim(filas.eq(1).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim(filas.eq(1).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim(filas.eq(1).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim(filas.eq(1).find("td").eq(2).text()));
+				}
+
+				if (e.keyCode == 68 && e.altKey) {
+					$("#jugador_seccion").val($.trim(filas.eq(2).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim(filas.eq(2).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim(filas.eq(2).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim(filas.eq(2).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim(filas.eq(2).find("td").eq(2).text()));
+				}
+				if (e.keyCode == 70 && e.altKey) {
+					$("#jugador_seccion").val($.trim(filas.eq(3).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim(filas.eq(3).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim(filas.eq(3).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim(filas.eq(3).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim(filas.eq(3).find("td").eq(2).text()));
+				}
+				if (e.keyCode == 71 && e.altKey) {
+					$("#jugador_seccion").val($.trim(filas.eq(4).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim(filas.eq(4).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim(filas.eq(4).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim(filas.eq(4).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim(filas.eq(4).find("td").eq(2).text()));
+				}
+			
+			});
+
+			$("html").on("click",".fila",function(e){
+				console.log(e.keyCode)
+				$(this)
+				//console.log(filas)
+					//console.log($.trim(filas.eq(0).find("td").eq(1).text()));
+					$("#jugador_seccion").val($.trim($(this).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim($(this).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim($(this).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim($(this).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim($(this).find("td").eq(2).text()));
+				
+			
+			});
 			$("body").on("keyup",function(event){
 				console.log(event.keyCode)
 				if (event.keyCode == 121) {

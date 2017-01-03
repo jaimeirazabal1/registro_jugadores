@@ -43,7 +43,10 @@ class Flash
     public static function show($name, $text)
     {
         if (isset($_SERVER['SERVER_SOFTWARE'])) {
-            echo '<div class="alert alert-', $name, '">', $text, '</div>', PHP_EOL;
+            $boton = '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>';
+            echo '<div class="alert alert-', $name, '">', $boton ,$text, '</div>', PHP_EOL;
         } else {
             echo $name, ': ', strip_tags($text), PHP_EOL;
         }

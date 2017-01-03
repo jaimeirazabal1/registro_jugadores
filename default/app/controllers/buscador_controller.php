@@ -34,4 +34,10 @@ class BuscadorController extends AppController{
 		$this->results = $results;
 
 	}
+
+	public function buscar($id){
+		View::select(null,"json");
+		$results = $jugadores->find($id);
+		die(json_encode($results));
+	}
 }

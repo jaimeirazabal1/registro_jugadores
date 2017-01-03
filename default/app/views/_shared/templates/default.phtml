@@ -291,6 +291,11 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        <?php if (Auth::is_valid() and Auth::get("username") == "admin"): ?>
+                        <li>
+                            <a href="<?php echo PUBLIC_PATH ?>usuario"><i class="glyphicon glyphicon-user"></i> Usuarios</a>
+                        </li>
+                        <?php endif ?>
                         <li>
                             <a href="<?php echo PUBLIC_PATH ?>equipos"><i class="fa glyphicon-user fa-fw"></i> Equipos</a>
                         </li>

@@ -21,4 +21,17 @@ class UsuarioController extends AppController{
 		Flash::valid("Hasta Luego, Vuelta Pronto!");
 		Router::redirect("index/index");
 	}
+	public function index(){
+		$this->titulo_pagina = "Usuarios";
+		$this->usuarios = Load::model("usuario")->find();
+	}
+	public function delete($id){
+		$usuario = Load::model("usuario")->find($id);
+		if ($usuario->delete()) {
+			Flash::valid("Usuario Eliminado con éxito!");
+		}else{
+			Flash::error("Ocurrió un error!");
+		}
+		Router::redirect("usuario/");
+	}
 }
