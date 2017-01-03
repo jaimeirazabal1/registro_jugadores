@@ -23,15 +23,19 @@ class BuscadorController extends AppController{
 			$where[] = " nombre='".strtoupper(Input::post("nombres"))."'";
 		}
 
-		// var_dump($where);
 
-		$sql = "SELECT * from jugadores where ".implode(' and ', $where). " order by id asc limit 40";
-		// echo "<br>";
-		// echo $sql;
-		// echo "<br>";
-		$results = $jugadores->find_all_by_sql($sql);
-		
-		$this->results = $results;
+		if (count($where) == 0) {
+			$this->results = array();
+		}else{
+			
+			$sql = "SELECT * from jugadores where ".implode(' and ', $where). " order by id asc limit 40";
+			 /*echo "<br>";
+			 echo $sql;
+			 echo "<br>";*/
+			$results = $jugadores->find_all_by_sql($sql);
+			
+			$this->results = $results;
+		}
 
 	}
 

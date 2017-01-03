@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 27, 2016 at 01:53 PM
--- Server version: 5.7.16-0ubuntu0.16.04.1
--- PHP Version: 5.6.29-1+deb.sury.org~xenial+1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 03-01-2017 a las 22:01:51
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u669571457_db`
+-- Base de datos: `registro_jugadores`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `equipo`
+-- Estructura de tabla para la tabla `equipo`
 --
 
 CREATE TABLE `equipo` (
@@ -33,7 +33,7 @@ CREATE TABLE `equipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `equipo`
+-- Volcado de datos para la tabla `equipo`
 --
 
 INSERT INTO `equipo` (`id`, `nombre`, `created`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `equipo` (`id`, `nombre`, `created`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jugador`
+-- Estructura de tabla para la tabla `jugador`
 --
 
 CREATE TABLE `jugador` (
@@ -53,26 +53,26 @@ CREATE TABLE `jugador` (
   `apellido_paterno` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `apellido_materno` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `nombres` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `calle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `numero_int` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `numero_ext` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `colonia` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `cp` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `localidad` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `municipio` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `estado` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `tlf_particular` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `tlf_celular` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `correo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `facebook` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `twitter` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `youtube` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `calle` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `numero_int` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `numero_ext` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `colonia` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cp` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `localidad` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `municipio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `estado` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tlf_particular` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tlf_celular` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `correo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twitter` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `youtube` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `equipo_id` int(11) DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `jugador`
+-- Volcado de datos para la tabla `jugador`
 --
 
 INSERT INTO `jugador` (`id`, `seccion`, `pos`, `apellido_paterno`, `apellido_materno`, `nombres`, `calle`, `numero_int`, `numero_ext`, `colonia`, `cp`, `localidad`, `municipio`, `estado`, `tlf_particular`, `tlf_celular`, `correo`, `facebook`, `twitter`, `youtube`, `equipo_id`, `created`) VALUES
@@ -82,7 +82,7 @@ INSERT INTO `jugador` (`id`, `seccion`, `pos`, `apellido_paterno`, `apellido_mat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jugadores`
+-- Estructura de tabla para la tabla `jugadores`
 --
 
 CREATE TABLE `jugadores` (
@@ -101,7 +101,7 @@ CREATE TABLE `jugadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jugadores`
+-- Volcado de datos para la tabla `jugadores`
 --
 
 INSERT INTO `jugadores` (`id`, `seccion`, `posicion`, `apellidopaterno`, `apellidomaterno`, `nombre`, `calle`, `numeroexterior`, `numerointerior`, `colonia`, `localidad`, `municipio`) VALUES
@@ -598,7 +598,7 @@ INSERT INTO `jugadores` (`id`, `seccion`, `posicion`, `apellidopaterno`, `apelli
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -610,58 +610,61 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `username`, `password`, `rol`, `created`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'CAPTURISTA', '2016-12-27 13:04:20'),
 (2, 'pepe', '926e27eecdbc7a18858b3798ba99bddd', 'CAPTURISTA', '2016-12-27 14:06:36'),
-(3, 'pepe', '926e27eecdbc7a18858b3798ba99bddd', 'CAPTURISTA', '2016-12-27 14:07:33');
+(4, 'nuevo', '7d3ff5e583a1727c07bd911d427b514b', 'Administrador', '2017-01-03 17:10:27');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `equipo`
+-- Indices de la tabla `equipo`
 --
 ALTER TABLE `equipo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jugador`
+-- Indices de la tabla `jugador`
 --
 ALTER TABLE `jugador`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `jugadores`
+--
+ALTER TABLE `jugadores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `equipo`
+-- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `jugador`
+-- AUTO_INCREMENT de la tabla `jugador`
 --
 ALTER TABLE `jugador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
-  ALTER TABLE `jugadores`
-  ADD PRIMARY KEY (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

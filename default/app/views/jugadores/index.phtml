@@ -51,13 +51,13 @@
 			<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-group "></span></span>
-					<?php echo Form::text("jugador.apellido_paterno","placeholder='Apellido Paterno' class='form-control am'") ?>
+					<?php echo Form::text("jugador.apellido_paterno","placeholder='Apellido Paterno' class='form-control ap'") ?>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon1"><span class="fa fa-group "></span></span>
-					<?php echo Form::text("jugador.apellido_materno","placeholder='Apellido Materno' class='form-control ap'") ?>
+					<?php echo Form::text("jugador.apellido_materno","placeholder='Apellido Materno' class='form-control am'") ?>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -267,58 +267,21 @@
 			    if ((e.which || e.keyCode) == 17) 
 			        ctrlKeyDown = false;
 			};
+			$("input[type='text']").keyup(function(){
+				$(this).val($(this).val().toUpperCase())
+			})
 		})
 	</script>
 <?php echo Form::close() ?>
 <div class="clearfix"></div>
 <br>
 <div class="panel panel-default">
-	  <div class="panel-body">
-		<table class="table results">
-			<thead>
-				<th>Nombres</th>
-				<th>Apellido Paterno</th>
-				<th>Apellido Materno</th>
-				<th>Sección</th>
-				<th>Posición</th>
-				<th></th>
-			</thead>
-			
-		</table>
+	  <div class="panel-body results">
+	
 	  </div>
-</div>
 
+</div>
+<br><br><br><br>
 <script src="<?php echo PUBLIC_PATH ?>/vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo PUBLIC_PATH ?>/vendor/datatables/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo PUBLIC_PATH ?>/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript">
-	
-    $(document).ready(function() {
-        $('.table').DataTable({
-        	language:{
-    "sProcessing":     "Procesando...",
-    "sLengthMenu":     "Mostrar _MENU_ registros",
-    "sZeroRecords":    "No se encontraron resultados",
-    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-    "sInfoPostFix":    "",
-    "sSearch":         "Buscar:",
-    "sUrl":            "",
-    "sInfoThousands":  ",",
-    "sLoadingRecords": "Cargando...",
-    "oPaginate": {
-        "sFirst":    "Primero",
-        "sLast":     "Último",
-        "sNext":     "Siguiente",
-        "sPrevious": "Anterior"
-    },
-    "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-    }
-}
-        });
-    });
-</script>

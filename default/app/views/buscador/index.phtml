@@ -1,13 +1,13 @@
 <?php View::content() ?>
+
 <table class="table">
 	<thead>
 		<td></td>
-		<th>Nombres</th>
 		<th>Apellido Paterno</th>
 		<th>Apellido Materno</th>
+		<th>Nombres</th>
 		<th>Sección</th>
 		<th>Posición</th>
-		<th></th>
 	</thead>
 	<?php $c = 0 ?>
 	<?php $alts = array('a','s','d','f','g') ?>
@@ -17,20 +17,51 @@
 		<?php else: ?>
 			<tr id="<?php echo $value->id ?>">
 		<?php endif ?>
-			<td>
 				<?php if ($c < 5): ?>
+			<td data-order="<?php echo $c ?>">
 					<?php echo ($c+1).') ALT + '.$alts[$c] ?>
 				<?php else: ?>
+			<td data-order="100000000">
 					<?php echo ($c+1).")" ?>
 				<?php endif ?>
 				<?php $c++; ?>
 
 			</td>
-			<td><?php echo $value->nombre ?></td>
 			<td><?php echo $value->apellidopaterno ?></td>
 			<td><?php echo $value->apellidomaterno ?></td>
+			<td><?php echo $value->nombre ?></td>
 			<td><?php echo $value->seccion ?></td>
 			<td><?php echo $value->posicion ?></td>
 		</tr>
 	<?php endforeach ?>
 </table>
+<script type="text/javascript">
+	$(document).ready(function(){
+        var table = $('.table').DataTable({
+        	language:{
+			    "sProcessing":     "Procesando...",
+			    "sLengthMenu":     "Mostrar _MENU_ registros",
+			    "sZeroRecords":    "No se encontraron resultados",
+			    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+			    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+			    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			    "sInfoPostFix":    "",
+			    "sSearch":         "Buscar:",
+			    "sUrl":            "",
+			    "sInfoThousands":  ",",
+			    "sLoadingRecords": "Cargando...",
+			    "oPaginate": {
+			        "sFirst":    "Primero",
+			        "sLast":     "Último",
+			        "sNext":     "Siguiente",
+			        "sPrevious": "Anterior"
+			    },
+			    "oAria": {
+			        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+			        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			    }
+			}
+        });
+	})
+</script>
