@@ -68,6 +68,19 @@
 				}
 			
 			});
+			$("html").on("click",".fila",function(e){
+				console.log(e.keyCode)
+				$(this)
+				//console.log(filas)
+					//console.log($.trim(filas.eq(0).find("td").eq(1).text()));
+					$("#jugador_seccion").val($.trim($(this).find("td").eq(4).text()));
+					$("#jugador_pos").val($.trim($(this).find("td").eq(5).text()));
+					$("#jugador_nombres").val($.trim($(this).find("td").eq(1).text()));
+					$("#jugador_apellido_materno").val($.trim($(this).find("td").eq(3).text()));
+					$("#jugador_apellido_paterno").val($.trim($(this).find("td").eq(2).text()));
+				
+			
+			});
 	});
 </script>
 <?php echo Form::open("","post","id='form-jugador'") ?>
