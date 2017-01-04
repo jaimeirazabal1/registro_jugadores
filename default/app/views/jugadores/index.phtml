@@ -171,11 +171,21 @@
 			</div>
 		</div>
 	</div>
-	<div class="pull-right">
-		<input type="submit" value="Guardar(F5)" id="btn_guardar" class="btn btn-info">
-		<input type="reset" value="Limpiar(F10)" id="btn_limpiar" onclick="$('#form-jugador')[0].reset()" class="btn btn-default">
+	<!-- <div class="pull-right"> -->
+	<!-- </div> -->
+<!-- <div class="container"> -->
+<div class="pull-right" style="padding-right: 13px">
+	
+    <div class="row">
+        <div class="btn-group btn-breadcrumb">
+            <a href="#" class="btn btn-info" id="btn_guardar">Guardar(F5)</a>
+            <a href="#" class="btn btn-default" onclick="$('#form-jugador')[0].reset()" id="btn_limpiar">Limpiar(F10)</a>
+        </div>
 	</div>
+</div>
+<!-- </div> -->
 
+	
    
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -261,7 +271,14 @@
 			        ctrlKeyDown = true;
 			    }
 			};
-
+			$("#btn_guardar").click(function(e){
+				e.preventDefault();
+				$("#form-jugador").submit();
+			})
+			$("#btn_limpiar").click(function(e){
+				e.preventDefault();
+				$("#form-jugador")[0].reset();
+			})
 			function keyup(e){
 			    // Key up Ctrl
 			    if ((e.which || e.keyCode) == 17) 
